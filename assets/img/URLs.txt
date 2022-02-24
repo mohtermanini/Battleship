@@ -1,0 +1,21 @@
+-stone: https://pixabay.com/photos/wall-bricks-white-white-brick-wall-769963/
+
+-dark-wood: https://pixabay.com/photos/wood-turquoise-blue-structure-1963988/
+
+-light-wood: https://pixabay.com/photos/wood-board-structure-boards-grain-591631/
+
+-turquoise-wood: https://pixabay.com/photos/wood-turquoise-blue-structure-1963988/
+
+-chain: https://www.pngfind.com/mpng/bJhix_free-png-download-chain-single-line-png-images/
+
+-water: https://pixabay.com/photos/background-blue-1984434/
+
+-sand: https://pixabay.com/photos/backdrop-background-blank-board-72250/
+
+-solid-wood: https://pixabay.com/photos/wood-boards-texture-wooden-brown-2045380/
+
+-cross: <a target="_blank" href="https://icons8.com/icon/T9nkeADgD3z6/cross-mark">Cross Mark</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+-black-wood: https://pixabay.com/photos/funds-wood-smooth-clear-texture-1932210/
+
+-icy: https://pixabay.com/photos/winter-cold-surface-ice-texture-2054297/
