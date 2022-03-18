@@ -145,6 +145,7 @@ const GameController = (() => {
             });
             PubSub.publish("TurnIncreased", {
                 newTurn: game.currentTurn,
+                currentEnemyIndex: game.currentEnemyIndex,
                 gameView,
             });
         }

@@ -46,7 +46,7 @@ const GameEventHandler = (() => {
     }
 
     function turnIncreased(msg, data) {
-        data.gameView.changeTurn(data.newTurn);
+        data.gameView.changeTurn(data.newTurn, data.currentEnemyIndex);
     }
 
     function shipSunk(msg, data) {

@@ -153,6 +153,7 @@ export default class GameView {
     async startGameButtonClick() {
         this.hideScores();
         await ContainerHelper.removeWoodenContainer(this.#startGameContainerElement);
+        this.scrollToEnemyArea(this.#game.currentEnemyIndex);
         GameController.startGame(this.#game, this);
     }
     /* ==================== */
@@ -221,9 +222,17 @@ export default class GameView {
         return this.#playersViews[playerIndex];
     }
 
+    scrollToEnemyArea(enemyIndex) {
+        if (enemyIndex === 0) {
+            this.#firstPlayerArenaElement.scrollIntoView();
+        } else {
+            this.#secondPlayerArenaElement.scrollIntoView();
+        }
+    }
+
     /* ==================== */
 
-    changeTurn(newTurn) {
+    changeTurn(newTurn, enemyIndex) {
         this.#roundsNumberElement.innerText = newTurn;
         const rotation = getComputedStyle(this.#roundsElement).getPropertyValue("--angle");
         if (rotation.trim() === "0deg") {
@@ -234,6 +243,7 @@ export default class GameView {
             this.#roundsElement.style.setProperty("--angle", "0deg");
             this.#roundsTextElement.style.setProperty("--angle", "0deg");
         }
+        this.scrollToEnemyArea(enemyIndex);
     }
 
     async newGame(freshStart = true) {

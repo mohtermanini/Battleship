@@ -346,6 +346,7 @@ input[type=radio] + span {
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 body {
