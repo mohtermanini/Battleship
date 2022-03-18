@@ -1,0 +1,19 @@
+input {
+    @extend .bdrs-2;
+    padding: 1rem 2rem;
+    background: #fff;
+    border: none;
+}
+
+input[type = radio] {
+    appearance: none;
+    & + span {
+        @extend .wooden-container;
+        cursor: pointer;
+        display: inline-block;
+    }
+    &:checked + span {
+        @extend .outline-blue;
+        @extend .outline-thick;
+    }
+}

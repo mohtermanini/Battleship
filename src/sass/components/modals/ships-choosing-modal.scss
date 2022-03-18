@@ -1,0 +1,46 @@
+.ships-choosing-modal {
+    @extend .modal;
+    .modal-body {
+        .ships {
+            display: flex;
+            overflow: hidden;
+            padding-top: 0.25rem;
+            .pages-container {
+                display: flex;
+                position: relative;
+                right: 0;
+                transition: right 0.3s linear;
+                width: 30vw;
+                @media (max-width: $lg) {
+                    width: 40vw;
+                }
+                @media (max-width: $md) {
+                    width: 60vw;
+                }
+                @media (max-width: $sm) {
+                    width: 80vw;
+                }
+            }
+            .page {
+                flex-shrink: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                padding-left: 2.5rem;
+                width: 100%;
+            }
+            .ship-container {
+                display: flex;
+                justify-content: space-between;
+                .count {
+                    font-weight: bold;
+                    font-size: calc(1em + 0.25rem);
+                }
+                .ship-block {
+                    width: $game-block-size-md;
+                    height: $game-block-size-md;
+                }
+            }
+        }
+    }
+}

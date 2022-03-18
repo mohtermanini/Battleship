@@ -1,3 +1,34 @@
-@import url("../css/reset.css");
+@import url("../src/css/reset.css");
 
+@import "./variables/breakpoints";
+@import "./variables/colors";
+@import "./variables/dimensions";
+
+@import "./mixins/images";
+
+@import "./utilities/borders";
+@import "./utilities/buttons";
+@import "./utilities/containers";
+@import "./utilities/display";
+@import "./utilities/forms";
+@import "./utilities/modals";
+@import "./utilities/seperators";
+@import "./utilities/text";
+@import "./utilities/visiblity";
+
+@import "./layout/forms";
 @import "./layout/general";
+
+@import "./components/blocks";
+@import "./components/board";
+@import "./components/containers";
+@import "./components/counter";
+@import "./components/pagination";
+@import "./components/ships";
+
+@import "./components/modals/game-type-modal";
+@import "./components/modals/grid-size-modal";
+@import "./components/modals/ships-choosing-modal";
+@import "./components/modals/ships-placing-modal";
+
+@import "./pages/index.scss";

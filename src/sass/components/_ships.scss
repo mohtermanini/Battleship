@@ -1,0 +1,39 @@
+.ship {
+    display: flex;
+    &.vertical:not(.hidden) {
+        flex-direction: column;
+        .ship-block {
+            &:not(:last-child) {
+                border-bottom-width: 0;
+            }
+            &:not(:first-child) {
+                border-top-width: 0;
+            }
+        }
+    }
+    &.horizontal:not(.hidden) {
+        flex-direction: row;
+        .ship-block {
+            &:not(:last-child) {
+                border-right-width: 0;
+            }
+            &:not(:first-child) {
+                border-left-width: 0;
+            }
+        }
+    }
+    &.destroyed {
+        .ship-block {
+            border-color: $orange;
+        }
+    }
+}
+
+.ship-compressed {
+    @extend .flex-center;
+    gap: 0.25rem;
+    .parenthesis {
+        display: inline-block;
+        font-size: 2.75rem;
+    }
+}

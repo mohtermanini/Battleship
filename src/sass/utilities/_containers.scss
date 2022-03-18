@@ -1,0 +1,42 @@
+.chained-container {
+    position: absolute;
+    transition: bottom 0.3s linear;
+    &::before,
+    &::after {
+        @include bg-image("../assets/img/chain.png", 100% auto, center, repeat-y);
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 100vh;
+        width: 15px;
+        // Image file is horizontal chain, this will switch it to vertical
+        transform-origin: 50% 0;
+        transform: rotate(180deg);
+    }
+    &::before {
+        left: 20px;
+    }
+    &::after {
+        right: 20px;
+    }
+}
+
+.light-wood-container {
+    @include bg-image("../assets/img/light-wood.jpg", 100% auto, 0 90%, repeat-y);
+}
+
+.dark-wood-container {
+    @include bg-image("../assets/img/dark-wood.jpg", 100% auto, 0 90%, repeat-y);
+}
+
+.smooth-dark-wood-container {
+    @include bg-image("../assets/img/smooth-dark-wood.jpg");
+}
+
+.wooden-container {
+    @extend .border-grey;
+    @extend .bdrs-1;
+    @extend .smooth-dark-wood-container;
+    padding: 1rem 3.5rem;
+    font-weight: bold;
+}

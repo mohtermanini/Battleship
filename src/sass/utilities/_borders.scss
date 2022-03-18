@@ -1,0 +1,64 @@
+/* ||Outlines */
+.outline-small {
+    outline-width: 2px;
+    outline-style: solid;
+}
+
+.outline-medium {
+    outline-width: 3px;
+    outline-style: solid;
+}
+
+.outline-thick {
+    outline-width: 4px;
+    outline-style: solid;
+}
+
+.outline-blue {
+    @extend .outline-small;
+    outline-color: $blue;
+}
+
+.outline-orange {
+    @extend .outline-small;
+    outline-color: $orange;
+}
+/* ************************************************** */
+
+/* ||Borders */
+.border-small {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.border-medium {
+    border-width: 3px;
+    border-style: solid;
+}
+
+.border-grey {
+    @extend .border-small;
+    border-color: $grey;
+}
+
+.border-white {
+    @extend .border-small;
+    border-color: #fff;
+}
+
+.bdrs-1 {
+    border-radius: 0.5rem;
+}
+
+.bdrs-2 {
+    border-radius: 0.75rem;
+}
+
+.bdrs-3 {
+    border-radius: 1rem;
+}
+
+.bdrs-4 {
+    border-radius: 1.5rem;
+}
+/* ************************************************** */

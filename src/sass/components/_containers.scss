@@ -1,0 +1,150 @@
+.rounds-container {
+    @extend .border-white;
+    @extend .border-medium;
+    @extend .flex-center;
+    --angle: 0deg;
+    border-radius: 50%;
+    padding: 1rem;
+    width: 112px;
+    aspect-ratio: 1;
+    background-image: url("../assets/img/grey.jpg");
+    transform: rotateY(var(--angle));
+    transition: transform 1s;
+    p {
+        font-weight: bold;
+        font-size: 2rem;
+        text-align: center;
+        transform: rotateY(var(--angle));
+        transition: inherit;
+    }
+}
+
+.ships-remained-container {
+    background-image: url("../../assets/img/light-wood.jpg");
+    background-repeat: repeat-y;
+    padding: 2rem 3rem 1rem;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    grid-template-areas:
+        "ships ships ships"
+        ". pagination info";
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: calc($game-block-size * 10 + 20%);
+    .ships {
+        grid-area: ships;
+        display: flex;
+        gap: 2rem;
+        height: 45px;
+        overflow: hidden;
+        font-size: 2rem;
+        font-weight: bold;
+        scroll-behavior: smooth;
+        .ship-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            &:not(:first-child)::before {
+                content: "";
+                width: 3px;
+                height: 100%;
+                background-color: #fff;
+            }
+            .ship-block {
+                @extend .game-block-small;
+            }
+        }
+    }
+    .pagination {
+        grid-area: pagination;
+        justify-self: center;
+        align-self: center;
+    }
+    .info {
+        grid-area: info;
+        justify-self: end;
+        margin-right: -2rem;
+        z-index: 2;
+    }
+
+    &::before {
+        @extend .border-white;
+        @extend .border-medium;
+        @extend .flex-center;
+        @extend .absolute-100;
+        content: "Ships Remained";
+        border-style: dashed;
+        width: 0;
+        height: 0;
+        font-weight: bold;
+        font-size: 2rem;
+        background-color: rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+        z-index: 1;
+        opacity: 0%;
+    }
+    &.help::before {
+        opacity: 100%;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.3s;
+    }
+}
+
+.ships-remained-container-responsive {
+    @extend .ships-remained-container;
+    @media (min-width: $sm) and (max-width: $lg) {
+        align-self: stretch;
+        grid-template-rows: 1fr auto auto;
+        grid-template-columns: auto;
+        grid-template-areas: "ships" "pagination" "info";
+        .ships {
+            flex-direction: column;
+            align-items: stretch;
+            height: 100%;
+            .ship-container {
+                display: grid;
+                grid-template-columns: auto auto;
+                p {
+                    justify-self: end;
+                }
+                &:not(:first-child)::before {
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+                    width: 100%;
+                    height: 3px;
+                }
+            }
+        }
+        .pagination {
+            flex-direction: column;
+            gap: 10px !important;
+            .arrow-container {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+.pause-container {
+    @extend .absolute-100;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: -1;
+    opacity: 0%;
+    transition: all 0.25s ease-in;
+    &.semi-active {
+        z-index: 3;
+        opacity: 30%;
+        transition-property: opacity;
+    }
+    &.active {
+        z-index: 3;
+        opacity: 80%;
+        transition-property: opacity;
+    }
+    &.front {
+        z-index: 20;
+    }
+}

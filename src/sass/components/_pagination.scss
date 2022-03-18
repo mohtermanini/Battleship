@@ -1,0 +1,25 @@
+.pagination {
+    @extend .flex-center;
+    gap: 10px;
+    .arrow-container {
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        &.disabled {
+            cursor: default;
+            pointer-events: none;
+            svg {
+                cursor: default;
+                color: #cccccc;
+            }
+        }
+    }
+
+    .arrow-container-button {
+        @extend .wooden-container;
+        padding: 0 1rem;
+        &:active {
+            @extend .outline-blue;
+        }
+    }
+}

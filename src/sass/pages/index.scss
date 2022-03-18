@@ -1,0 +1,141 @@
+.game-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.game-arena {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    position: relative;
+    @media (max-width: $lg) {
+        grid-template-columns: auto;
+    }
+}
+
+.player-area {
+    @include bg-image("../assets/img/stone-high.jpg");
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 120px auto auto;
+    grid-template-areas: "turn-label" "board" "ships";
+    justify-items: center;
+    height: 100%;
+    padding: 0 4rem;
+    position: relative;
+    @media (min-width: $sm) and (max-width: $lg) {
+        padding: 0;
+        grid-template-rows: 120px auto;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: "ships turn-label" "ships board";
+    }
+    @media (max-width: $lg) {
+        row-gap: 3rem;
+    }
+    .turn-row {
+        width: 100%;
+        height: 100%;
+        @extend .flex-center;
+        .turn-container {
+            @extend .chained-container;
+            @extend .light-wood-container;
+            bottom: 100%;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            width: 100%;
+            max-width: 300px;
+            p {
+                font-weight: bold;
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            &.active {
+                bottom: calc(100% - 70px - 50px);
+            }
+        }
+    }
+    .board {
+        margin: auto;
+        grid-area: board;
+        position: relative;
+        @media (min-width: $sm) and (max-width: $lg) {
+            margin-bottom: 2rem;
+        }
+        .ship {
+            pointer-events: none;
+            position: absolute;
+        }
+    }
+    .ships-remained-container-responsive {
+        margin-top: auto;
+        grid-area: ships;
+        @media (min-width: $sm) and (max-width: $lg) {
+            margin-top: 0;
+        }
+        .pagination {
+            gap: 40px;
+        }
+    }
+    .score-container {
+        @extend .absolute-100;
+        @extend .flex-center;
+        flex-direction: column;
+        gap: 1.5rem;
+        font-weight: bold;
+        font-size: 4rem;
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 0.75);
+        transition: opacity 0.25s ease-in;
+        opacity: 0;
+        .name {
+            font-size: 7rem;
+        }
+        &.active {
+            z-index: 4;
+            opacity: 100%;
+        }
+    }
+
+    .darkening {
+        @extend .absolute-100;
+        transition: opacity 0.25s ease-in;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        &.active {
+            opacity: 45%;
+            z-index: 3;
+        }
+    }
+}
+
+.middle-bisector {
+    @extend .flex-center;
+    background-image: url("../assets/img/solid-wood.jpg");
+    padding: 1rem 3rem;
+}
+
+.next-game-container,
+.start-game-container {
+    @extend .chained-container;
+    @extend .dark-wood-container;
+    padding: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 130%;
+    transition-property: bottom, transform;
+    transition-timing-function: ease-out;
+    transition-duration: 0.5s;
+    z-index: 5;
+    &.active {
+        bottom: 50%;
+        transform: translate(-50%, 50%);
+    }
+    button {
+        padding: 2.5rem 4rem;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,42 @@
+.game-block {
+    width: $game-block-size;
+    height: $game-block-size;
+    position: relative;
+    cursor: pointer;
+    &:hover:not(.hit) {
+        &::after {
+            @extend .absolute-100;
+            content: "";
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+    }
+}
+
+.game-block-small {
+    @extend .game-block;
+    width: $game-block-size-sm;
+    height: $game-block-size-sm;
+}
+
+.board-block {
+    @extend .game-block;
+    @extend .border-grey;
+    @include bg-image("../assets/img/water.jpg");
+    &.disabled {
+        pointer-events: none;
+    }
+    &.incorrect {
+        @include bg-image("../assets/img/cross.png", contain);
+        background-color: $danger;
+    }
+}
+
+.ship-block {
+    @extend .game-block;
+    @extend .border-white;
+    background-color: $lime;
+    &.hidden {
+        z-index: -1;
+        visibility: hidden;
+    }
+}

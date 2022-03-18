@@ -1,0 +1,34 @@
+.counter {
+    @extend .flex-center;
+    gap: 1.5rem;
+    font-weight: bold;
+    .minus,
+    .plus {
+        @extend .wooden-container;
+        padding: 0.25rem;
+        line-height: 1;
+        border: none;
+        cursor: pointer;
+        &:active {
+            @extend .outline-blue;
+        }
+        &.disabled {
+            cursor: default;
+            pointer-events: none;
+            position: relative;
+            &::before {
+                content: "";
+                @extend .absolute-100;
+                background-color: rgba(0, 0, 0, 0.25);
+            }
+        }
+        svg {
+            color: #fff;
+            width: 30px;
+            height: 30px;
+        }
+    }
+    .number {
+        font-size: calc(1em + 0.5rem);
+    }
+}

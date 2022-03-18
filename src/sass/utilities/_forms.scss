@@ -1,0 +1,22 @@
+.floating-label-input {
+    position: relative;
+    input {
+        padding: 3rem 1.5rem 1rem;
+        &:focus, &:not(:placeholder-shown) {
+            + label {
+                top: 5px;
+                transform: translateY(0);
+                font-size: 0.75em;
+            }
+        }
+    }
+    label {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 1.5rem;
+        color: #cecece;
+        cursor: text;
+        transition: all 0.25s;
+    }
+}

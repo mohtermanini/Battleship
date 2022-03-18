@@ -8,12 +8,35 @@ html {
 }
 
 body {
+    @include bg-image("../assets/img/stone-high.jpg");
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     font-size: 1.6rem;
+    line-height: 1.6;
+    font-family: Lato, Geneva, Tahoma, sans-serif;
+    color: #fff;
+    user-select: none;
 }
 
 main {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+}
+
+h1, h2 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+svg {
+    user-select: none;
 }

@@ -1,0 +1,14 @@
+.game-type-modal {
+    @extend .modal;
+    transform: translateY(50%) !important;
+    .modal-body {
+        #form-game-type {
+            @extend .flex-center;
+            gap: 10rem;
+            @media (max-width: $sm) {
+                flex-direction: column;
+                gap: 3rem;
+            }
+        }
+    }
+}

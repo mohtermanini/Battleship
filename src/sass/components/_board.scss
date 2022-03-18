@@ -1,0 +1,9 @@
+.board {
+    --board-horizontal-cells: 10;
+    display: inline-grid;
+    grid-template-columns: repeat(var(--board-horizontal-cells), auto);
+    align-content: center;
+    &.disabled {
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,58 @@
+.grid-size-modal {
+    @extend .modal;
+    .modal-body {
+        min-width: 35vw;
+        @media (max-width: $lg) {
+            min-width: 50vw;
+        }
+        @media (max-width: $md) {
+            min-width: 70vw;
+        }
+    }
+    section.section-grid-size {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "header header"
+            "width height"
+            "width-counter height-counter"
+            "board board";
+        justify-items: center;
+        row-gap: 3rem;
+        header {
+            grid-area: header;
+        }
+        .width-label {
+            grid-area: width;
+        }
+        .height-label {
+            grid-area: height;
+        }
+        .width-counter {
+            grid-area: width-counter;
+        }
+        .height-counter {
+            grid-area: height-counter;
+        }
+        .width-label,
+        .height-label {
+            @extend .wooden-container;
+            background-image: url(../assets/img/black-wood.jpg);
+            padding: {
+                left: 1.3rem;
+                right: 1.3rem;
+            }
+        }
+        .width-counter,
+        .height-counter {
+            @extend .counter;
+        }
+        .board {
+            grid-area: board;
+            height: calc(10 * $game-block-size);
+            .board-block {
+                cursor: default;
+            }
+        }
+    }
+}

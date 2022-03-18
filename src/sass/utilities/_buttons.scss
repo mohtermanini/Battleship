@@ -1,0 +1,20 @@
+button {
+    padding: 1rem 2rem;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+}
+
+.btn-icon {
+    @extend .flex-center;
+}
+
+button[disabled] {
+    position: relative;
+    overflow: hidden;
+    &::before {
+        content: "";
+        @extend .absolute-100;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
