@@ -306,7 +306,7 @@ button[disabled]::before {
 
 .icy-hr {
   height: 10px;
-  background-image: url(../assets/img/icy.jpg);
+  background-image: url("../assets/img/icy.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -455,7 +455,7 @@ svg {
 }
 
 .ships-remained-container, .ships-remained-container-responsive {
-  background-image: url("../../assets/img/light-wood.jpg");
+  background-image: url("../assets/img/light-wood.jpg");
   background-repeat: repeat-y;
   padding: 2rem 3rem 1rem;
   display: inline-grid;
@@ -720,7 +720,7 @@ svg {
 }
 .grid-size-modal section.section-grid-size .width-label,
 .grid-size-modal section.section-grid-size .height-label {
-  background-image: url(../assets/img/black-wood.jpg);
+  background-image: url("../assets/img/black-wood.jpg");
   padding-left: 1.3rem;
   padding-right: 1.3rem;
 }

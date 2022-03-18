@@ -24,8 +24,8 @@ export default class GameboardView {
         this.#height = height;
         this.#playerView = playerView;
         this.#shipsList = shipsList;
-        this.#audioSplash = new Audio("../../../assets/sounds/splash.wav");
-        this.#audioCrash = new Audio("../../../assets/sounds/explode-cut.wav");
+        this.#audioSplash = new Audio("./assets/sounds/splash.wav");
+        this.#audioCrash = new Audio("./assets/sounds/explode-cut.wav");
         this.#shipsBlocksBoard = [];
         for (let i = 0; i < this.#height; i++) {
             this.#shipsBlocksBoard.push([]);
