@@ -1,11 +1,7 @@
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
-const extractPlugin = new MiniCssExtractPlugin({
-    filename: "styles.css",
-});
 
 module.exports = {
+    devtool: "inline-source-map",
     mode: "production",
     entry: "./src/js/index.js",
     output: {
@@ -14,23 +10,19 @@ module.exports = {
     },
     module: {
         rules: [
+            // {
+            //     test: /.js$/,
+            //     exclude: /(node_modules|bower_components)/,
+            //     use: {
+            //         loader: "babel-loader",
+            //         options: {
+            //             presets: ["@babel/preset-env"],
+            //         },
+            //     },
+            // },
             {
-                test: /.scss$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-            },
-            {
-                test: /.js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env"]
-                    },
-                },
+                test: /\.handlebars$/, loader: "handlebars-loader",
             },
         ],
     },
-    plugins: [
-        extractPlugin,
-    ],
 };
