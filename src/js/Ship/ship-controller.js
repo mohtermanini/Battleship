@@ -1,11 +1,10 @@
 export default function Ship(length) {
-    let id;
     let hpRemained = length;
-    let hitpoints = [];
+    const hitpoints = [];
     for (let i = 0; i < length; i++) {
         hitpoints[i] = 0;
     }
-    let proto = {
+    const proto = {
         hit(index) {
             if (typeof index !== "number" || !Number.isInteger(index)) {
                 throw new Error("Illegal Argument Exception");
@@ -21,8 +20,14 @@ export default function Ship(length) {
         isSunk() {
             return hpRemained === 0;
         },
+        getHPRemained() {
+            return hpRemained;
+        },
         getHitpoints() {
             return [...hitpoints];
+        },
+        getHPDamaged() {
+            return length - hpRemained;
         },
         getLength() {
             return length;

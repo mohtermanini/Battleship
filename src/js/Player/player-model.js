@@ -1,4 +1,4 @@
-import Gameboard from "../Gameboard/gameboard-module.js";
+import Gameboard from "../Gameboard/gameboard-model";
 
 export default class Player {
     #name;
@@ -9,8 +9,11 @@ export default class Player {
 
     #playedRounds;
 
-    constructor(name) {
+    #isBot;
+
+    constructor(name, isBot) {
         this.name = name;
+        this.#isBot = isBot;
         this.#winRounds = 0;
         this.#playedRounds = 0;
     }
@@ -21,6 +24,10 @@ export default class Player {
 
     get name() {
         return this.#name;
+    }
+
+    get isBot() {
+        return this.#isBot;
     }
 
     createBoard(width, height) {

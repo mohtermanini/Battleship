@@ -1,4 +1,4 @@
-import Player from "./player-module";
+import Player from "./player-model";
 
 test("Name is set", () => {
     const player = new Player("player1");

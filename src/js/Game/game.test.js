@@ -1,6 +1,6 @@
-import Game from "./game-module";
+import Game from "./game-model";
 import GameController from "./game-controller";
-import Player from "../Player/player-module";
+import Player from "../Player/player-model";
 import GameboardController from "../Gameboard/gameboard-controller";
 
 test("No player is playing when game is newly created", () => {
@@ -56,10 +56,12 @@ test("Turns increase", () => {
     const startPlayer = game.currentPlayerIndex;
     if (startPlayer === 0) {
         GameController.attack(game, 0, 1);
+        GameController.attack(game, 1, 1);
+        GameController.attack(game, 0, 2);
     }
-    GameController.attack(game, 1, 1);
-    GameController.attack(game, 0, 2);
     if (startPlayer === 1) {
+        GameController.attack(game, 1, 1);
+        GameController.attack(game, 0, 2);
         GameController.attack(game, 1, 2);
     }
     expect(game.currentTurn).toBe(4);
@@ -76,9 +78,17 @@ test("Turns remains if attack was succeded hitting a ship", () => {
     game.addPlayer(player2);
 
     GameController.startGame(game);
-    GameController.attack(game, 0, 0);
-    GameController.attack(game, 1, 0);
-    GameController.attack(game, 0, 3);
+    const startPlayer = game.currentPlayerIndex;
+    if (startPlayer === 0) {
+        GameController.attack(game, 0, 0);
+        GameController.attack(game, 1, 0);
+        GameController.attack(game, 0, 3);
+    }
+    if (startPlayer === 1) {
+        GameController.attack(game, 0, 0);
+        GameController.attack(game, 1, 0);
+        GameController.attack(game, 0, 3);
+    }
     expect(game.currentTurn).toBe(1);
 });
 

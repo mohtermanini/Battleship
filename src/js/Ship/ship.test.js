@@ -6,53 +6,53 @@ describe("hit function", () => {
         ship.hit(0);
         expect(ship.getHitpoints()).toEqual([1, 0, 0]);
     });
-    
+
     test("hit ship of length 3 at index 0 two times", () => {
         let ship = new Ship(3);
         ship.hit(0);
         ship.hit(0);
         expect(ship.getHitpoints()).toEqual([1, 0, 0]);
     });
-    
+
     test("hit ship of length 3 at index -1", () => {
         let ship = new Ship(3);
         expect(() => {
-            ship.hit(-1)
+            ship.hit(-1);
         }).toThrow();
     });
-    
+
     test("hit ship of length 3 at index 3", () => {
         let ship = new Ship(3);
         expect(() => {
-            ship.hit(3)
+            ship.hit(3);
         }).toThrow();
     });
 
     test("hit ship of length 3 at index 4", () => {
         let ship = new Ship(3);
         expect(() => {
-            ship.hit(4)
+            ship.hit(4);
         }).toThrow();
     });
-    
+
     test("call hit ship function without paramteres", () => {
         let ship = new Ship(3);
         expect(() => {
-            ship.hit()
+            ship.hit();
         }).toThrow();
     });
 
     test("call hit ship function with paramter index of type string", () => {
         let ship = new Ship(3);
         expect(() => {
-            ship.hit("0")
+            ship.hit("0");
         }).toThrow();
     });
-    
+
     test("call hit ship function with paramter index of 0.5", () => {
         let ship = new Ship(3);
         expect(() => {
-            ship.hit(0.5)
+            ship.hit(0.5);
         }).toThrow();
     });
 });
@@ -85,4 +85,4 @@ describe("getLength function", () => {
         let ship = new Ship(3);
         expect(ship.getLength()).toBe(3);
     });
-})
+});

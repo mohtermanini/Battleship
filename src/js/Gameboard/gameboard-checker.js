@@ -1,5 +1,5 @@
-import GameboardGetter from "./gameboard-getter.js";
-import CheckerHelper from "../checker-helper.js";
+import GameboardGetter from "./gameboard-getter";
+import CheckerHelper from "../checker-helper";
 
 const GameboardChecker = (() => {
     function canAddShip(board, length) {
@@ -7,7 +7,8 @@ const GameboardChecker = (() => {
             throw new Error("Illegal Argument Exception");
         }
         if (
-            length > Math.max(
+            length >
+            Math.max(
                 GameboardGetter.maxHorizontalLengthCanBeOccupied(board),
                 GameboardGetter.maxVerticalLengthCanBeOccupied(board),
             )
@@ -16,7 +17,7 @@ const GameboardChecker = (() => {
         }
         let notPlacedLength = 0;
         board.getShips().forEach((item) => {
-            if (item.start === undefined) {
+            if (item.row === undefined && item.col === undefined) {
                 notPlacedLength += item.ship.getLength();
             }
         });
@@ -32,10 +33,10 @@ const GameboardChecker = (() => {
 
     function canPlaceShip(board, shipIndex, row, col, isVertical) {
         if (
-            !CheckerHelper.checkIfWholeNumber(shipIndex)
-            || !CheckerHelper.checkIfWholeNumber(row)
-            || !CheckerHelper.checkIfWholeNumber(col)
-            || (typeof (isVertical) !== "boolean")
+            !CheckerHelper.checkIfWholeNumber(shipIndex) ||
+            !CheckerHelper.checkIfWholeNumber(row) ||
+            !CheckerHelper.checkIfWholeNumber(col) ||
+            typeof isVertical !== "boolean"
         ) {
             throw new Error("Illegal Argument Exception");
         }
@@ -65,10 +66,7 @@ const GameboardChecker = (() => {
     }
 
     function isHit(board, row, col) {
-        if (
-            !CheckerHelper.checkIfWholeNumber(row)
-            || !CheckerHelper.checkIfWholeNumber(col)
-        ) {
+        if (!CheckerHelper.checkIfWholeNumber(row) || !CheckerHelper.checkIfWholeNumber(col)) {
             throw new Error("Illegal Argument Exception");
         }
 
@@ -82,12 +80,34 @@ const GameboardChecker = (() => {
         return board.getShipsAlive() === 0;
     }
 
+    function checkIfAllShipsPlaced(board) {
+        const shipsArray = board.getShips();
+        for (let i = 0; i < shipsArray.length; i++) {
+            if (shipsArray[i].row === undefined || shipsArray[i].col === undefined) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function checkIfNonOfShipsPlaced(board) {
+        const shipsArray = board.getShips();
+        for (let i = 0; i < shipsArray.length; i++) {
+            if (shipsArray[i].row !== undefined || shipsArray[i].col !== undefined) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     return {
         canAddShip,
         isOutsideBoard,
         canPlaceShip,
         isHit,
         areAllShipsSunk,
+        checkIfAllShipsPlaced,
+        checkIfNonOfShipsPlaced,
     };
 })();
 

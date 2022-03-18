@@ -38,6 +38,10 @@ export default class Game {
         return this.#players[playerIndex];
     }
 
+    getPlayers() {
+        return [...this.#players];
+    }
+
     getPlayersCount() {
         return this.#players.length;
     }
