@@ -219,7 +219,7 @@ const GameController = (() => {
                         winnerIndex: game.currentPlayerIndex,
                     });
                 }
-            } else {
+            } else if (boardView) {
                 startMove(game, boardView.playerView.gameView);
             }
         }
