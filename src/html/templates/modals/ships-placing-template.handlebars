@@ -1,0 +1,104 @@
+<div class="modal-container">
+        <div class="ships-placing-modal">
+            <div class="modal-header">
+                <h2>{{playerLabel}}</h2>
+            </div>
+            <div class="modal-body">
+                <section class="section-player-name">
+                    <header>
+                        <h3>Player Name</h3>
+                    </header>
+                    <form class="form-player-name">
+                        <div class="floating-label-input">
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                placeholder=" "
+                                autocomplete="off"
+                            />
+                            <label for="name">
+                            </label>
+                        </div>
+                    </form>
+                </section>
+                <hr class="icy-hr" />
+                <section class="place-ships">
+                    <header>
+                        <h3>Place Ships</h3>
+                    </header>
+                    <div class="ships">
+                        <div class="pages-container">
+
+                        </div>
+                        <div class="pagination">
+                            <div class="arrow-container arrow-container-button">
+                                <svg
+                                    class="left-arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="currentColor"
+                                    class="bi bi-caret-left-fill"
+                                    viewBox="0 0 16 16"
+                                >
+                                    <path
+                                        d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <p><span class="current-page">1</span>
+                                /
+                                <span class="pages-num"></span></p>
+                            <div class="arrow-container arrow-container-button">
+                                <svg
+                                    class="right-arrow"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="currentColor"
+                                    class="bi bi-caret-right-fill"
+                                    viewBox="0 0 16 16"
+                                >
+                                    <path
+                                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+                                    ></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="board-container">
+                        <div class="board"></div>
+                        <div class="place-options">
+                            <button class="btn-h active">H</button>
+                            <button class="btn-v">V</button>
+                            <button class="btn-remove">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    fill="white"
+                                    class="bi bi-trash-fill"
+                                    viewBox="0 0 16 16"
+                                >
+                                    <path
+                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"
+                                    ></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="auto-place-container">
+                        <button class="btn-auto-place">Random Placing</button>
+                        <p class="text-error d-none">*Couldn't place ships</p>
+                    </div>
+                </section>
+            </div>
+            <hr class="icy-hr" />
+            <div class="modal-options">
+                <button class="btn-back">Back</button>
+                <button class="btn-submit">Next</button>
+            </div>
+            <div class="modal-spacer"></div>
+    </div>
+</div>
