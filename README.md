@@ -8,5 +8,18 @@ Battleship is a war-themed board game for two players in which the opponents try
 * If the attempt is successful the player calls out another coordinates until he finds out all the hidden ships or his call fails.
 * The winner is the first to find out all the hidden ships.
 
-**You can enter the game from [here](https://fwtlssc.github.io/Battleship/)**
+**You can enter the game from [here](https://mohtermanini.github.io/Battleship/)**
 
+## Technical section
+* Langauges:
+    * HTML
+    * CSS and SASS
+    * Javascript
+    * Handlebars template engine
+* Design patterns:
+    * Module pattern
+    * MVC pattern
+    * Publish/Subscribe pattern
+* Dynamic programming
+    * Used in auto placing ships
+* Test-driven development (TDD)
