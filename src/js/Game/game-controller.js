@@ -189,6 +189,9 @@ const GameController = (() => {
     }
 
     function attack(game, row, col, boardView) {
+        if (!game.running) {
+            return;
+        }
         const attackSucceded = GameboardController.receiveAttack(
             game.getCurrentEnemy().board,
             row,
