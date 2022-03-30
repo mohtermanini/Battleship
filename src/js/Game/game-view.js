@@ -247,7 +247,7 @@ export default class GameView {
         this.scrollToEnemyArea(enemyIndex);
     }
 
-    async newGame(freshStart = true) {
+    async newGame(freshStart = true, playersNames = []) {
         this.#players = [];
         this.#playersViews = [];
         this.#currentModalIndex = 0;
@@ -260,7 +260,7 @@ export default class GameView {
         }
         const modalsOrder = [this.createGridSizeModal, this.createShipsChoosingModal];
         for (let i = 1; i <= this.#humanNumber; i++) {
-            modalsOrder.push(this.createShipsPlacingModal.bind(this, i, freshStart));
+            modalsOrder.push(this.createShipsPlacingModal.bind(this, i, freshStart, playersNames));
         }
         while (this.#currentModalIndex < modalsOrder.length) {
             await modalsOrder[this.#currentModalIndex++].call(this);
@@ -365,8 +365,7 @@ export default class GameView {
     /* ==================== */
 
     /* Ships Placing Modal */
-    async createShipsPlacingModal(playerNumber, isFirstRound) {
-        console.log(this.#players)
+    async createShipsPlacingModal(playerNumber, isFirstRound, playersNames) {
         const modalInstance = new ShipsPlacingModal(
             this.#humanNumber,
             playerNumber,
@@ -374,6 +373,7 @@ export default class GameView {
             this.#boardWidth,
             this.#boardHeight,
             isFirstRound,
+            playersNames[playerNumber - 1],
         );
         this.displayModal(modalInstance);
         await this.shipsPlacingModalSubmit(modalInstance, playerNumber);

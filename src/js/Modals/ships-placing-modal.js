@@ -33,15 +33,23 @@ export default class ShipsPlacingModal {
 
     #currentPlayerNum;
 
-    constructor(playersNum, currentPlayerNum, shipsList, boardWidth, boardHeight, isFirstRound) {
+    constructor(
+        playersNum,
+        currentPlayerNum,
+        shipsList,
+        boardWidth,
+        boardHeight,
+        isFirstRound,
+        playerName,
+    ) {
         this.#boardWidth = boardWidth;
         this.#boardHeight = boardHeight;
         this.#currentPlayerNum = currentPlayerNum;
-        let playerLabel = "Player";
-        if (currentPlayerNum === 1 && playersNum > 1) {
+        let playerLabel = isFirstRound ? "Player" : playerName;
+        if (isFirstRound && currentPlayerNum === 1 && playersNum > 1) {
             playerLabel = "First Player";
         }
-        if (currentPlayerNum === 2) {
+        if (isFirstRound && currentPlayerNum === 2) {
             playerLabel = "Second Player";
         }
         this.#shipsPlaced = 0;
@@ -50,7 +58,7 @@ export default class ShipsPlacingModal {
         this.#shipsList = {};
 
         this.cacheDOM(playerLabel);
-        this.initPlayerArea(isFirstRound);
+        this.initPlayerArea(isFirstRound, playerName);
         this.initShipsArea(shipsList);
         this.initPagination();
         this.initBoardArea();
@@ -91,9 +99,10 @@ export default class ShipsPlacingModal {
 
     #playerNameElement;
 
-    initPlayerArea(isFirstRound) {
+    initPlayerArea(isFirstRound, playerName) {
         if (!isFirstRound) {
             const hr = this.#playerNameSectionElement.nextElementSibling;
+            this.#playerNameElement.value = playerName;
             this.#playerNameSectionElement.remove();
             hr.remove();
         }

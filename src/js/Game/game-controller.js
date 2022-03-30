@@ -62,7 +62,11 @@ const GameController = (() => {
 
     function generateNextRound(game, gameView) {
         const scores = [];
-        gameView.newGame(false).then((data) => {
+        const playersNames = [];
+        game.getPlayers().forEach((player) => {
+            playersNames.push(player.name);
+        });
+        gameView.newGame(false, playersNames).then((data) => {
             for (let i = 0; i < data.players.length; i++) {
                 const playerData = data.players[i];
                 const player = game.getPlayer(i);
