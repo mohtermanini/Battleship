@@ -154,8 +154,8 @@ export default class GameView {
     async startGameButtonClick() {
         this.hideScores();
         await ContainerHelper.removeWoodenContainer(this.#startGameContainerElement);
-        this.scrollToEnemyArea(this.#game.currentEnemyIndex);
         GameController.startGame(this.#game, this);
+        this.scrollToEnemyArea(this.#game.currentEnemyIndex);
     }
     /* ==================== */
 
