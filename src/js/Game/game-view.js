@@ -366,6 +366,7 @@ export default class GameView {
 
     /* Ships Placing Modal */
     async createShipsPlacingModal(playerNumber, isFirstRound) {
+        console.log(this.#players)
         const modalInstance = new ShipsPlacingModal(
             this.#humanNumber,
             playerNumber,
@@ -375,11 +376,11 @@ export default class GameView {
             isFirstRound,
         );
         this.displayModal(modalInstance);
-        await this.shipsPlacingModalSubmit(modalInstance);
+        await this.shipsPlacingModalSubmit(modalInstance, playerNumber);
         await this.removeModal(modalInstance);
     }
 
-    shipsPlacingModalSubmit(modalInstance) {
+    shipsPlacingModalSubmit(modalInstance, playerNumber) {
         return new Promise((resolve) => {
             const btnBack = modalInstance.modalElement.querySelector(".btn-back");
             const btnSubmit = modalInstance.modalElement.querySelector(".btn-submit");
@@ -393,6 +394,9 @@ export default class GameView {
             });
             btnBack.addEventListener("click", () => {
                 this.#currentModalIndex -= 2;
+                if (playerNumber > 1) {
+                    this.#players.pop();
+                }
                 resolve();
             });
         });
