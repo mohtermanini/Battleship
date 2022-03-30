@@ -1,4 +1,5 @@
 import ChoosingShipsModal from "../Modals/ships-choosing-modal";
+import RulesModal from "../Modals/rules-modal";
 import GameTypeModal from "../Modals/game-type-modal";
 import GridSizeModal from "../Modals/grid-size-modal";
 import ShipsPlacingModal from "../Modals/ships-placing-modal";
@@ -251,6 +252,7 @@ export default class GameView {
         this.#playersViews = [];
         this.#currentModalIndex = 0;
         if (freshStart) {
+            await this.createRulesModal();
             await this.createGameTypeModal();
         } else {
             this.#gameArenaElement.remove();
@@ -280,6 +282,24 @@ export default class GameView {
             players: this.#players,
         };
     }
+
+    /* Rules Modal */
+    async createRulesModal() {
+        const modalInstance = new RulesModal();
+        this.displayModal(modalInstance);
+        await this.rulesModalSubmit(modalInstance);
+        await this.removeModal(modalInstance);
+    }
+
+    rulesModalSubmit(modalInstance) {
+        return new Promise((resolve) => {
+            const btnSubmit = modalInstance.modalElement.querySelector(".btn-start");
+            btnSubmit.addEventListener("click", () => {
+                resolve();
+            });
+        });
+    }
+    /* ==================== */
 
     /* Game Type Modal */
     async createGameTypeModal() {

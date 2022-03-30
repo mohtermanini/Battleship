@@ -100,13 +100,13 @@ button[disabled]::before {
 }
 
 .chained-container, .next-game-container,
-.start-game-container, .player-area .turn-row .turn-container, .modal, .ships-placing-modal, .ships-choosing-modal, .grid-size-modal, .game-type-modal {
+.start-game-container, .player-area .turn-row .turn-container, .modal, .ships-placing-modal, .ships-choosing-modal, .rules-modal, .grid-size-modal, .game-type-modal {
   position: absolute;
   transition: bottom 0.3s linear;
 }
 .chained-container::before, .next-game-container::before,
-.start-game-container::before, .player-area .turn-row .turn-container::before, .modal::before, .ships-placing-modal::before, .ships-choosing-modal::before, .grid-size-modal::before, .game-type-modal::before, .chained-container::after, .next-game-container::after,
-.start-game-container::after, .player-area .turn-row .turn-container::after, .modal::after, .ships-placing-modal::after, .ships-choosing-modal::after, .grid-size-modal::after, .game-type-modal::after {
+.start-game-container::before, .player-area .turn-row .turn-container::before, .modal::before, .ships-placing-modal::before, .ships-choosing-modal::before, .rules-modal::before, .grid-size-modal::before, .game-type-modal::before, .chained-container::after, .next-game-container::after,
+.start-game-container::after, .player-area .turn-row .turn-container::after, .modal::after, .ships-placing-modal::after, .ships-choosing-modal::after, .rules-modal::after, .grid-size-modal::after, .game-type-modal::after {
   background-image: url("../assets/img/chain.png");
   background-size: 100% auto;
   background-position: center;
@@ -120,15 +120,15 @@ button[disabled]::before {
   transform: rotate(180deg);
 }
 .chained-container::before, .next-game-container::before,
-.start-game-container::before, .player-area .turn-row .turn-container::before, .modal::before, .ships-placing-modal::before, .ships-choosing-modal::before, .grid-size-modal::before, .game-type-modal::before {
+.start-game-container::before, .player-area .turn-row .turn-container::before, .modal::before, .ships-placing-modal::before, .ships-choosing-modal::before, .rules-modal::before, .grid-size-modal::before, .game-type-modal::before {
   left: 20px;
 }
 .chained-container::after, .next-game-container::after,
-.start-game-container::after, .player-area .turn-row .turn-container::after, .modal::after, .ships-placing-modal::after, .ships-choosing-modal::after, .grid-size-modal::after, .game-type-modal::after {
+.start-game-container::after, .player-area .turn-row .turn-container::after, .modal::after, .ships-placing-modal::after, .ships-choosing-modal::after, .rules-modal::after, .grid-size-modal::after, .game-type-modal::after {
   right: 20px;
 }
 
-.light-wood-container, .player-area .turn-row .turn-container, .modal, .ships-placing-modal, .ships-choosing-modal, .grid-size-modal, .game-type-modal {
+.light-wood-container, .player-area .turn-row .turn-container, .modal, .ships-placing-modal, .ships-choosing-modal, .rules-modal, .grid-size-modal, .game-type-modal {
   background-image: url("../assets/img/light-wood.jpg");
   background-size: 100% auto;
   background-position: 0 90%;
@@ -215,7 +215,7 @@ button[disabled]::before {
   overflow-y: auto;
 }
 
-.modal, .ships-placing-modal, .ships-choosing-modal, .grid-size-modal, .game-type-modal {
+.modal, .ships-placing-modal, .ships-choosing-modal, .rules-modal, .grid-size-modal, .game-type-modal {
   padding: 0;
   font-size: 2rem;
   border-radius: 2.5rem;
@@ -225,16 +225,16 @@ button[disabled]::before {
   transition-timing-function: ease-out;
   transition-duration: 0.5s;
 }
-.modal::before, .ships-placing-modal::before, .ships-choosing-modal::before, .grid-size-modal::before, .game-type-modal::before, .modal::after, .ships-placing-modal::after, .ships-choosing-modal::after, .grid-size-modal::after, .game-type-modal::after {
+.modal::before, .ships-placing-modal::before, .ships-choosing-modal::before, .rules-modal::before, .grid-size-modal::before, .game-type-modal::before, .modal::after, .ships-placing-modal::after, .ships-choosing-modal::after, .rules-modal::after, .grid-size-modal::after, .game-type-modal::after {
   width: 30px;
 }
-.modal::before, .ships-placing-modal::before, .ships-choosing-modal::before, .grid-size-modal::before, .game-type-modal::before {
+.modal::before, .ships-placing-modal::before, .ships-choosing-modal::before, .rules-modal::before, .grid-size-modal::before, .game-type-modal::before {
   left: 60px;
 }
-.modal::after, .ships-placing-modal::after, .ships-choosing-modal::after, .grid-size-modal::after, .game-type-modal::after {
+.modal::after, .ships-placing-modal::after, .ships-choosing-modal::after, .rules-modal::after, .grid-size-modal::after, .game-type-modal::after {
   right: 60px;
 }
-.modal.active, .active.ships-placing-modal, .active.ships-choosing-modal, .active.grid-size-modal, .active.game-type-modal {
+.modal.active, .active.ships-placing-modal, .active.ships-choosing-modal, .active.rules-modal, .active.grid-size-modal, .active.game-type-modal {
   bottom: 50%;
   transform: translateY(calc(100% - 200px));
 }
@@ -731,6 +731,46 @@ svg {
 }
 .grid-size-modal section.section-grid-size .board .board-block {
   cursor: default;
+}
+
+.rules-modal .modal-body {
+  max-width: 40vw;
+}
+@media (max-width: 1100px) {
+  .rules-modal .modal-body {
+    max-width: 60vw;
+  }
+}
+@media (max-width: 1100px) {
+  .rules-modal .modal-body {
+    max-width: 50vw;
+  }
+}
+@media (max-width: 768px) {
+  .rules-modal .modal-body {
+    max-width: 70vw;
+  }
+}
+
+.section-gameplay {
+  padding-top: 0 !important;
+}
+.section-gameplay ol,
+.section-gameplay ul {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.section-gameplay ol {
+  list-style-type: decimal;
+}
+.section-gameplay ol ul {
+  margin-top: 2rem;
+  gap: 1rem;
+}
+.section-gameplay ul {
+  list-style-type: disc;
 }
 
 .ships-choosing-modal .modal-body .ships {

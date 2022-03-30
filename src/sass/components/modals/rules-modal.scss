@@ -1,0 +1,36 @@
+.rules-modal {
+    @extend .modal;
+    .modal-body {
+        max-width: 40vw;
+        @media (max-width: $lg) {
+            max-width: 60vw;
+        }
+        @media (max-width: $lg) {
+            max-width: 50vw;
+        }
+        @media (max-width: $md) {
+            max-width: 70vw;
+        }
+    }
+}
+
+.section-gameplay {
+    padding-top: 0 !important;
+    ol,
+    ul {
+        margin-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    ol {
+        list-style-type: decimal;
+        ul {
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+    }
+    ul {
+        list-style-type: disc;
+    }
+}
