@@ -16,7 +16,7 @@
 }
 
 .player-area {
-    @include bg-image("../assets/img/stone-high.jpg");
+    @include bg-image("/assets/img/stone.jpg");
     overflow: hidden;
     display: grid;
     grid-template-rows: 120px auto auto;
@@ -113,7 +113,7 @@
 
 .middle-bisector {
     @extend .flex-center;
-    background-image: url("../assets/img/solid-wood.jpg");
+    background-image: url("/assets/img/solid-wood.jpg");
     padding: 1rem 3rem;
 }
 

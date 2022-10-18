@@ -7,7 +7,7 @@
     padding: 1rem;
     width: 112px;
     aspect-ratio: 1;
-    background-image: url("../assets/img/grey.jpg");
+    background-image: url("/assets/img/grey.jpg");
     transform: rotateY(var(--angle));
     transition: transform 1s;
     p {
@@ -20,7 +20,7 @@
 }
 
 .ships-remained-container {
-    background-image: url("../assets/img/light-wood.jpg");
+    background-image: url("/assets/img/light-wood.jpg");
     background-repeat: repeat-y;
     padding: 2rem 3rem 1rem;
     display: inline-grid;

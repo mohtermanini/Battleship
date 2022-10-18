@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    @include bg-image("../assets/img/stone-high.jpg");
+    @include bg-image("/assets/img/stone.jpg");
     display: flex;
     flex-direction: column;
     min-height: 100vh;

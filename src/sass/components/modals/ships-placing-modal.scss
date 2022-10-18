@@ -39,7 +39,7 @@
         }
     }
     .ships {
-        @include bg-image("../assets/img/black-wood.jpg");
+        @include bg-image("/assets/img/black-wood.jpg");
         padding: 2rem 0;
         overflow: hidden;
         display: flex;

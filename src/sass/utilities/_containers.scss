@@ -3,7 +3,7 @@
     transition: bottom 0.3s linear;
     &::before,
     &::after {
-        @include bg-image("../assets/img/chain.png", 100% auto, center, repeat-y);
+        @include bg-image("/assets/img/chain.png", 100% auto, center, repeat-y);
         content: "";
         position: absolute;
         top: 0;
@@ -22,15 +22,15 @@
 }
 
 .light-wood-container {
-    @include bg-image("../assets/img/light-wood.jpg", 100% auto, 0 90%, repeat-y);
+    @include bg-image("/assets/img/light-wood.jpg", 100% auto, 0 90%, repeat-y);
 }
 
 .dark-wood-container {
-    @include bg-image("../assets/img/dark-wood.jpg", 100% auto, 0 90%, repeat-y);
+    @include bg-image("/assets/img/dark-wood.jpg", 100% auto, 0 90%, repeat-y);
 }
 
 .smooth-dark-wood-container {
-    @include bg-image("../assets/img/smooth-dark-wood.jpg");
+    @include bg-image("/assets/img/smooth-dark-wood.jpg");
 }
 
 .wooden-container {

@@ -21,12 +21,12 @@
 .board-block {
     @extend .game-block;
     @extend .border-grey;
-    @include bg-image("../assets/img/water.jpg");
+    @include bg-image("/assets/img/water.jpg");
     &.disabled {
         pointer-events: none;
     }
     &.incorrect {
-        @include bg-image("../assets/img/cross.png", contain);
+        @include bg-image("/assets/img/cross.png", contain);
         background-color: $danger;
     }
 }
