@@ -1,6 +1,14 @@
 .game-type-modal {
     @extend .modal;
     transform: translateY(50%) !important;
+    @media(max-width: $sm) {
+        &::before {
+            left: 20px;
+        }
+        &::after {
+            right: 20px;
+        }
+    }
     .modal-body {
         #form-game-type {
             @extend .flex-center;
