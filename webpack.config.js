@@ -23,6 +23,10 @@ module.exports = {
             },
             {
                 test: /\.handlebars$/, loader: "handlebars-loader",
+                options: {
+                    knownHelpersOnly: false,
+                    inlineRequires: '\/assets\/'
+                  }
             },
             {
                 test: /\.scss$/,
