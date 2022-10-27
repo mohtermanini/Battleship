@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
-    "sass": "sass --watch ./src/sass/styles.scss:./dist/styles.css"
+    "sass": "sass --watch ./src/sass/styles.scss:./dist/styles.css",
+    "deploy": "npx webpack && push-dir --dir=dist --branch=gh-pages"
   },
   "jest": {
     "transform": {
