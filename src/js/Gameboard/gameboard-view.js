@@ -1,6 +1,8 @@
 import PubSub from "pubsub-js";
 import BoardHelper from "../ViewHelper/board";
 import boardTemplate from "../../html/templates/gameboard-template.handlebars";
+import SplashSound from "../../../assets/sounds/splash.wav";
+import CrashSound from "../../../assets/sounds/explode-cut.wav";
 
 export default class GameboardView {
     #width;
@@ -24,8 +26,8 @@ export default class GameboardView {
         this.#height = height;
         this.#playerView = playerView;
         this.#shipsList = shipsList;
-        this.#audioSplash = new Audio("./assets/sounds/splash.wav");
-        this.#audioCrash = new Audio("./assets/sounds/explode-cut.wav");
+        this.#audioSplash = new Audio(SplashSound);
+        this.#audioCrash = new Audio(CrashSound);
         this.#shipsBlocksBoard = [];
         for (let i = 0; i < this.#height; i++) {
             this.#shipsBlocksBoard.push([]);
