@@ -23,10 +23,8 @@
     grid-template-areas: "turn-label" "board" "ships";
     justify-items: center;
     height: 100%;
-    padding: 0 4rem;
     position: relative;
     @media (min-width: $sm) and (max-width: $lg) {
-        padding: 0;
         grid-template-rows: 120px auto;
         grid-template-columns: auto 1fr;
         grid-template-areas: "ships turn-label" "ships board";
