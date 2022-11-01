@@ -1,8 +1,8 @@
 import PubSub from "pubsub-js";
 import BoardHelper from "../ViewHelper/board";
 import boardTemplate from "../../html/templates/gameboard-template.handlebars";
-import SplashSound from "../../../assets/sounds/splash.wav";
-import CrashSound from "../../../assets/sounds/explode-cut.wav";
+import SplashSound from "../../../assets/sounds/splash.mp3";
+import CrashSound from "../../../assets/sounds/explode-cut.mp3";
 
 export default class GameboardView {
     #width;
