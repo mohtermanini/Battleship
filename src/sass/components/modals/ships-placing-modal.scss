@@ -49,8 +49,8 @@
             display: flex;
             max-width: 500px;
             position: relative;
+            overflow: hidden;
             right: 0;
-            transition: right 0.3s linear;
             .page {
                 width: 100%;
                 flex-shrink: 0;
@@ -58,6 +58,7 @@
                 grid-template-columns: repeat(4, 1fr);
                 justify-items: center;
                 align-items: center;
+                transition: transform 0.3s linear;
                 .ship-container {
                     display: flex;
                     flex-direction: column;
