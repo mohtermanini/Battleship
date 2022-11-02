@@ -29,8 +29,6 @@ export default class ChoosingShipsModal {
 
     #counters;
 
-    #pageWidth;
-
     #currentPage;
 
     #pagesNum;
@@ -57,8 +55,8 @@ export default class ChoosingShipsModal {
         this.#modalElement = this.#modalContainerElement.firstElementChild;
         this.#shipsElement = this.#modalElement.querySelector(".ships");
         this.#pagesContainerElement = this.#shipsElement.querySelector(".pages-container");
-        this.#pagesElements = this.#pagesContainerElement.children;
         // Pagination Elements
+        this.#pagesElements = this.#pagesContainerElement.children;
         this.#currentPageElement = this.#modalElement.querySelector(".current-page");
         this.#leftArrowElement = this.#modalElement.querySelector(".left-arrow");
         this.#rightArrowElement = this.#modalElement.querySelector(".right-arrow");
@@ -84,7 +82,6 @@ export default class ChoosingShipsModal {
         this.#currentPage = 1;
         this.#pagesNum = this.#pagesContainerElement.children.length;
         this.#modalElement.querySelector(".pages-num").textContent = this.#pagesNum;
-        this.#pageWidth = "100%";
         this.initPaginationStyle();
     }
 
@@ -126,9 +123,6 @@ export default class ChoosingShipsModal {
     }
 
     updatePaginationStyle(direction = null) {
-        // this.#pagesContainerElement.style.right = `calc(${this.#currentPage - 1} * ${
-        //     this.#pageWidth
-        // })`;
         if (direction !== null) {
             const translateValue = direction == "right" ? -100 : +100;
             this.filpPage(translateValue);
