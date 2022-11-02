@@ -5,6 +5,7 @@ import PlacingShipsTemplate from "../../html/templates/modals/ships-placing-temp
 import ShipContainerTemplate from "../../html/templates/modals/ships-container-placing-modal-template.handlebars";
 import FormHelper from "../ViewHelper/form";
 import BoardHelper from "../ViewHelper/board";
+import { breakpoints } from "../variables/breakpoints";
 
 export default class ShipsPlacingModal {
     // DOM Elements
@@ -214,7 +215,10 @@ export default class ShipsPlacingModal {
 
     createShipsPages(shipsList) {
         const keys = Object.keys(shipsList).sort((a, b) => a - b);
-        const shipsPerPage = 4;
+        let shipsPerPage = 4;
+        if(innerWidth <= breakpoints.sm) {
+            shipsPerPage = 3;
+        }
         for (let i = 0; i < keys.length; i += shipsPerPage) {
             this.#pagesContainerElement.append(this.createPage(i, shipsPerPage, keys, shipsList));
         }

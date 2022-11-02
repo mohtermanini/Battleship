@@ -39,10 +39,10 @@
         }
     }
     .ships {
+        @extend .flex-center;
         @include bg-image("/assets/img/black-wood.jpg");
         padding: 2rem 0;
         overflow: hidden;
-        display: flex;
         flex-direction: column;
         gap: 2.5rem;
         .pages-container {
@@ -50,7 +50,9 @@
             max-width: 500px;
             position: relative;
             overflow: hidden;
-            right: 0;
+            @media(max-width: $sm) {
+                width: 80vw;
+            }
             .page {
                 width: 100%;
                 flex-shrink: 0;
@@ -59,6 +61,9 @@
                 justify-items: center;
                 align-items: center;
                 transition: transform 0.3s linear;
+                @media (max-width:$sm) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
                 .ship-container {
                     display: flex;
                     flex-direction: column;

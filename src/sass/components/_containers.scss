@@ -10,12 +10,18 @@
     background-image: url("/assets/img/grey.jpg");
     transform: rotateY(var(--angle));
     transition: transform 1s;
+    @media (max-width: $sm) {
+        width: 80px;
+    }
     p {
         font-weight: bold;
         font-size: 2rem;
         text-align: center;
         transform: rotateY(var(--angle));
         transition: inherit;
+        @media (max-width: $sm) {
+            font-size: 1.25rem;
+        }
     }
 }
 

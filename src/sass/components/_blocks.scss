@@ -3,6 +3,10 @@
     height: $game-block-size;
     position: relative;
     cursor: pointer;
+    @media(max-width: $sm) {
+        width: $game-block-size-md;
+        height: $game-block-size-md;
+    }
     &:hover:not(.hit) {
         &::after {
             @extend .absolute-100;

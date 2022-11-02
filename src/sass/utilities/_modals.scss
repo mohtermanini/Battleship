@@ -4,6 +4,7 @@
     height: 100%;
     position: fixed;
     z-index: 10;
+
     &.active {
         overflow-y: auto;
     }
@@ -19,20 +20,24 @@
     bottom: 130%;
     transition-property: bottom, transform;
     transition-timing-function: ease-out;
-    transition-duration: 0.5s ;
+    transition-duration: 0.5s;
+
     &::before,
     &::after {
         width: 30px;
     }
+
     &::before {
         left: 60px;
     }
+
     &::after {
         right: 60px;
     }
+
     &.active {
-        bottom: 50%;
-        transform: translateY(calc(100% - 200px));
+        bottom: 100%;
+        transform: translateY(calc(100% + 15vh));
     }
 }
 
@@ -41,6 +46,7 @@
     width: 100%;
     top: -60px;
     text-align: center;
+
     h2 {
         @extend .bdrs-1;
         @extend .dark-wood-container;
@@ -53,25 +59,32 @@
 .modal-body {
     min-width: 30vw;
     padding-top: 1rem;
+
     @media (max-width: $lg) {
         min-width: 40vw;
     }
+
     @media (max-width: $md) {
         min-width: 60vw;
     }
+
     @media (max-width: $sm) {
         min-width: 80vw;
     }
+
     header {
         text-align: center;
+
         h3 {
             @extend .wooden-container;
             display: inline-block;
         }
     }
+
     label {
         display: inline-block;
     }
+
     section {
         padding: 3rem;
         display: flex;
@@ -82,6 +95,7 @@
 
 .modal-options {
     @extend .flex-center;
+    flex-wrap: wrap;
     padding: {
         top: 2.5rem;
         bottom: 2rem;
@@ -89,7 +103,12 @@
         right: 2rem;
     }
     gap: 3rem;
-    button {        
+
+    @media(max-width: $sm) {
+        flex-direction: column-reverse;
+    }
+
+    button {
         @extend .smooth-dark-wood-container;
         @extend .bdrs-4;
         padding: 1.25rem 6rem;
