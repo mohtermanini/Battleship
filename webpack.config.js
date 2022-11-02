@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    devtool: "inline-source-map",
+    // mode: "development",
     mode: "production",
     entry: "./src/js/index.js",
     output: {
@@ -10,6 +10,11 @@ module.exports = {
         filename: "bundle.js",
         clean: true
     },
+    // devServer: {
+    //     static: {
+    //         directory: path.join(__dirname, '/dist')
+    //     }
+    // },
     module: {
         rules: [
             {
@@ -27,23 +32,23 @@ module.exports = {
                 options: {
                     knownHelpersOnly: false,
                     inlineRequires: '\/assets\/'
-                  }
+                }
             },
             {
                 test: /\.scss$/,
                 use: [
-                   "style-loader", "css-loader", "sass-loader"
+                    "style-loader", "css-loader", "sass-loader"
                 ],
             },
             {
                 test: /\.(svg|wav|mp3)$/,
                 type: 'asset/resource'
-              }
+            },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-           template: "index.html"
+            template: "index.html"
         })
     ]
 };
