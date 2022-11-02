@@ -58,8 +58,10 @@
         margin: auto;
         grid-area: board;
         position: relative;
+        height: 100%;
         @media (min-width: $sm) and (max-width: $lg) {
             margin-bottom: 2rem;
+            align-content: start;
         }
         .ship {
             pointer-events: none;
