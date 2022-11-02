@@ -14,6 +14,8 @@ export default class ChoosingShipsModal {
 
     #pagesContainerElement;
 
+    #pagesElements;
+
     #currentPageElement;
 
     #leftArrowElement;
@@ -55,6 +57,7 @@ export default class ChoosingShipsModal {
         this.#modalElement = this.#modalContainerElement.firstElementChild;
         this.#shipsElement = this.#modalElement.querySelector(".ships");
         this.#pagesContainerElement = this.#shipsElement.querySelector(".pages-container");
+        this.#pagesElements = this.#pagesContainerElement.children;
         // Pagination Elements
         this.#currentPageElement = this.#modalElement.querySelector(".current-page");
         this.#leftArrowElement = this.#modalElement.querySelector(".left-arrow");
@@ -82,7 +85,7 @@ export default class ChoosingShipsModal {
         this.#pagesNum = this.#pagesContainerElement.children.length;
         this.#modalElement.querySelector(".pages-num").textContent = this.#pagesNum;
         this.#pageWidth = "100%";
-        this.updatePaginationStyle();
+        this.initPaginationStyle();
     }
 
     bindPaginationEvents() {
@@ -101,34 +104,70 @@ export default class ChoosingShipsModal {
         if (this.#currentPage === 1) {
             throw new Error("Illegal Argument Exception");
         }
+        this.updatePaginationStyle("left");
         --this.#currentPage;
-        this.updatePaginationStyle();
     }
 
     paginateRight() {
         if (this.#currentPage === this.#pagesNum) {
             throw new Error("Illegal Argument Exception");
         }
+        this.updatePaginationStyle("right");
         ++this.#currentPage;
-        this.updatePaginationStyle();
     }
 
-    updatePaginationStyle() {
-        this.#pagesContainerElement.style.right = `calc(${this.#currentPage - 1} * ${
-            this.#pageWidth
-        })`;
+    initPaginationStyle() {
         if (this.#currentPage === 1) {
+            this.#leftArrowElement.closest(".arrow-container").classList.add("disabled");
+        }
+        if (this.#currentPage === this.#pagesNum) {
+            this.#rightArrowElement.closest(".arrow-container").classList.add("disabled");
+        }
+    }
+
+    updatePaginationStyle(direction = null) {
+        // this.#pagesContainerElement.style.right = `calc(${this.#currentPage - 1} * ${
+        //     this.#pageWidth
+        // })`;
+        if (direction !== null) {
+            const translateValue = direction == "right" ? -100 : +100;
+            this.filpPage(translateValue);
+        }
+        let nextPage = this.#currentPage;
+        if (direction === null || direction === "right") {
+            ++nextPage;
+        } else {
+            --nextPage;
+        }
+        if (nextPage === 1) {
             this.#leftArrowElement.closest(".arrow-container").classList.add("disabled");
         } else {
             this.#leftArrowElement.closest(".arrow-container").classList.remove("disabled");
         }
-        if (this.#currentPage === this.#pagesNum) {
+        if (nextPage === this.#pagesNum) {
             this.#rightArrowElement.closest(".arrow-container").classList.add("disabled");
         } else {
             this.#rightArrowElement.closest(".arrow-container").classList.remove("disabled");
         }
-        this.#currentPageElement.textContent = this.#currentPage;
+        this.#currentPageElement.textContent = nextPage;
     }
+
+    filpPage(translate) {
+        const n = this.#pagesElements.length;
+        for (let i = 0; i < n; i++) {
+            this.translatePage(this.#pagesElements[i], translate);
+        }
+    }
+
+    translatePage(pageElement, translate) {
+        const currentTransformValue = pageElement.style["transform"];
+        let currentTranslateValue = 0;
+        if (currentTransformValue.length > 0) {
+            currentTranslateValue = parseInt(currentTransformValue.slice(11, currentTransformValue.length - 2), 10);
+        }
+        pageElement.style["transform"] = `translateX(${currentTranslateValue + translate}%)`;
+    }
+
     /* ==================== */
 
     /* Create Ships Pages */
@@ -212,7 +251,7 @@ export default class ChoosingShipsModal {
         Array.from(Object.keys(this.#counters)).forEach((key) => {
             this.#counters[key].updateMax(
                 this.#counters[key].currentNumber +
-                    Math.floor((boardSize - pickedShipBlocksSum) / key),
+                Math.floor((boardSize - pickedShipBlocksSum) / key),
             );
         });
     }
